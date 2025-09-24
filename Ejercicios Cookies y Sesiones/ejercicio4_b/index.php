@@ -14,7 +14,7 @@
     // Vaciar
     if (isset($_GET["vaciar"]) && $_GET["vaciar"] === "1") {
         $_SESSION["lista"] = [];
-    }
+    } 
 
     include 'index.view.php';
 ?>
