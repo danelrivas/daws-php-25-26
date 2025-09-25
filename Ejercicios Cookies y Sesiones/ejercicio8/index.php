@@ -51,5 +51,38 @@ function cargarCesta($productos) {
 // Variable para HTML
 $productosSeleccionados = cargarCesta($productos);
 
+
+
+// Cookie
+$nombreCookie = "idioma";
+
+
+if (isset($_POST['idioma'])) {
+    $idioma = $_POST['idioma'];
+    setcookie($nombreCookie, $idioma, time() + (30*24*60*60), "/"); 
+
+
+} elseif (isset($_COOKIE[$nombreCookie])) {
+    $idioma = $_COOKIE[$nombreCookie];
+
+} else {
+    $idioma = "español";
+    setcookie($nombreCookie, $idioma, time() + (30*24*60*60), "/");
+}
+
+
+$idioma = strtolower(trim($idioma));
+
+switch ($idioma) {
+    case "español":
+        $mensaje = "¡Bienvenido!";
+        break;
+    case "euskera":
+        $mensaje = "Ongi etorri!";
+        break;
+    default:
+        $mensaje = "¡Bienvenido!";
+        break;
+}
+
 include "index.view.php";
-?>

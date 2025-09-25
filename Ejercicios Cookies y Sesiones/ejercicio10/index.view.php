@@ -74,10 +74,12 @@
                     <th>Cantidad</th>
                 </tr>
                 <?php foreach ($productos as $key => $producto): ?>
-                    <tr>
+                <tr style="<?= $esFavorito ? 'color: darkred; font-weight: bold;' : '' ?>">
                         <td><?= $producto["Nombre"] ?></td>
                         <td><?= $producto["Descripción"] ?></td>
                         <td><?= $producto["Precio"] ?>€</td>
+                        <td><a href="index.php?accion=detalles&producto=<?= $key ?> " target="_blank">Ver detalles</a></td>
+                        <td><a href="index.php?accion=favorito&producto=<?= $key ?>">Guardar como favoritos</a>
                         <!-- Registra en la URL la clave del producto -->
                         <td><a href="index.php?accion=añadir&producto=<?= $key ?>">Comprar</a></td>
                     </tr>

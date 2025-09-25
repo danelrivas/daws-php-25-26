@@ -78,6 +78,7 @@
                         <td><?= $producto["Nombre"] ?></td>
                         <td><?= $producto["Descripción"] ?></td>
                         <td><?= $producto["Precio"] ?>€</td>
+                        <td><a href="index.php?accion=detalles&producto=<?= $key ?>">Ver detalles</a></td>
                         <!-- Registra en la URL la clave del producto -->
                         <td><a href="index.php?accion=añadir&producto=<?= $key ?>">Comprar</a></td>
                     </tr>

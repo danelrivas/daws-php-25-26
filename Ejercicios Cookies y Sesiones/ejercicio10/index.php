@@ -29,6 +29,30 @@ if (isset($_GET["accion"])) {
             }
             break;
 
+        case "detalles":
+            $productoDetalle = $_GET["producto"];
+            $valoresProducto = verDetalles($productoDetalle, $productos);
+            require 'valores.view.php'; // SOLO se carga la vista de detalle
+            exit; // Importantísimo: no cargar index.view.php
+            break;
+
+        case "favorito":
+            if (isset($_GET["producto"]) && isset($productos[$_GET["producto"]])) {
+                $favoritos = isset($_COOKIE["favoritos"]) ? json_decode($_COOKIE["favoritos"], true) : [];
+                
+                if (!in_array($_GET["producto"], $favoritos)) {
+                    $favoritos[] = $_GET["producto"];
+                }
+
+                // Guardar de nuevo en cookie como JSON
+                setcookie("favoritos", json_encode($favoritos), time() + (30*24*60*60), "/");
+            }
+
+            // Redirigir para limpiar la URL
+            header("Location: index.php");
+            exit;
+            break;
+
         case "vaciar":
             $_SESSION["cesta"] = [];
             break;
@@ -50,6 +74,32 @@ function cargarCesta($productos) {
 
 // Variable para HTML
 $productosSeleccionados = cargarCesta($productos);
+
+
+
+//Detalles producto
+function verDetalles($productoDetalle, $productos){
+    //Hay que utilizar key para cada "id"!
+    foreach ($productos as $key => $producto){
+        if ($key === $productoDetalle){
+            $descripcionProducto = $producto["Descripción"];
+            $nombreProducto = $producto["Nombre"];
+            $valoresProducto = [$nombreProducto, $descripcionProducto];
+            return $valoresProducto;
+        }
+    }
+    return null; // por si no existe
+}
+
+
+function mostrarValores($valoresProducto){
+    require 'valores.view.php';
+}
+
+
+// Recuperar favoritos
+$favoritos = isset($_COOKIE["favoritos"]);
+
 
 include "index.view.php";
 ?>

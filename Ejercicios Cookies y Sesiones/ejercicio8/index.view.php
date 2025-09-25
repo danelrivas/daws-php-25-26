@@ -35,8 +35,18 @@
 
 <body>
     <div>
-        <h2>Cesta de la compra</h2>
+        <h1><?= $mensaje ?></h1>
 
+        <h4>Selecciona un idioma</h4>
+        <form action="index.php" method="post">
+            <select name="idioma" id="idioma">
+                <option value="español">Español</option>
+                <option value="euskera">Euskera</option>
+                <button type="input" value="guardar">Guardar</button>
+            </select>
+        </form>
+
+        <h2>Cesta de la compra</h2>
         <?php 
             $precioTotal = 0;
             if (empty($productosSeleccionados)): 

@@ -29,6 +29,13 @@ if (isset($_GET["accion"])) {
             }
             break;
 
+        case "detalles":
+            $productoDetalle = $_GET["producto"];
+            $valoresProducto = verDetalles($productoDetalle, $productos);
+            require 'valores.view.php'; // SOLO se carga la vista de detalle
+            exit; // Importantísimo: no cargar index.view.php
+            break;
+
         case "vaciar":
             $_SESSION["cesta"] = [];
             break;
@@ -50,6 +57,29 @@ function cargarCesta($productos) {
 
 // Variable para HTML
 $productosSeleccionados = cargarCesta($productos);
+
+
+
+//Detalles producto
+function verDetalles($productoDetalle, $productos){
+    //Hay que utilizar key para cada "id"!
+    foreach ($productos as $key => $producto){
+        if ($key === $productoDetalle){
+            $descripcionProducto = $producto["Descripción"];
+            $nombreProducto = $producto["Nombre"];
+            $valoresProducto = [$nombreProducto, $descripcionProducto];
+            return $valoresProducto;
+        }
+    }
+    return null; // por si no existe
+}
+
+
+function mostrarValores($valoresProducto){
+    require 'valores.view.php';
+}
+
+
 
 include "index.view.php";
 ?>
