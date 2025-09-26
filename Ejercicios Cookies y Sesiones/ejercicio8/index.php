@@ -55,26 +55,21 @@ $productosSeleccionados = cargarCesta($productos);
 
 // Cookie
 $nombreCookie = "idioma";
+$mensaje = "";
 
-
-if (isset($_POST['idioma'])) {
-    $idioma = $_POST['idioma'];
+if (isset($_POST["guardar"]) && isset($_POST['idioma'])) {
+    $idioma = strtolower(trim($_POST['idioma']));
+    // echo "IDIOMA: $idioma";
     setcookie($nombreCookie, $idioma, time() + (30*24*60*60), "/"); 
-
-
 } elseif (isset($_COOKIE[$nombreCookie])) {
-    $idioma = $_COOKIE[$nombreCookie];
-
+    $idioma = strtolower(trim($_COOKIE[$nombreCookie]));
 } else {
-    $idioma = "español";
+    $idioma = "espanol";
     setcookie($nombreCookie, $idioma, time() + (30*24*60*60), "/");
 }
 
-
-$idioma = strtolower(trim($idioma));
-
-switch ($idioma) {
-    case "español":
+switch ($_COOKIE[$nombreCookie]) {
+    case "espanol":
         $mensaje = "¡Bienvenido!";
         break;
     case "euskera":
@@ -84,5 +79,9 @@ switch ($idioma) {
         $mensaje = "¡Bienvenido!";
         break;
 }
+
+
+
+
 
 include "index.view.php";
