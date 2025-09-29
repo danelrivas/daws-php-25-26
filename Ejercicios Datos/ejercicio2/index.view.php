@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App de Gestión de Empleados</title>
+</head>
+<body>
+    <h1 style="text-align: center;">App de Gestión de Empleados</h1>
+    <p style="text-align: center;">Bienvenido a la aplicacion de aprendizaje Gestión de Empleados. Este ejercicio tiene como objetivo repasar el acceso a datos mediante PDO y comenzar a seprar la logica de las páginas de la presentación y del acceso a datos.</p>
+    <table>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td colspan="4">
+                            <h3>Listado de empleados</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>DNI</td>
+                        <th>Nombre</td>
+                        <th>Apellidos</td>
+                        <th>Opciones</td>
+                    </tr>
+                    <?php foreach ($empleados as $key => $empleado):?>
+                    <tr>
+                        <td><?= $empleado["dni"]?></td>
+                        <td><?= $empleado["nombre"] ?></td>
+                        <td><?= $empleado["apellidos"] ?></td>
+                        <td><a href="index.php?accion=detalle$persona=<?= $empleado["id"] ?>">Ver detalles</a> | <a href="index.php?accion=eliminar$persona=<?= $empleado["id"] ?>">eliminar</a></td>
+                    </tr>
+                    <?php endforeach;?>
+                </table>
+                <p>* Opción secreta: <a href="index.php?accion=vaciar">Vaciar lista</a></p>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
