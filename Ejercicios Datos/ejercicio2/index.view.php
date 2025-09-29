@@ -28,14 +28,30 @@
                         <td><?= $empleado["dni"]?></td>
                         <td><?= $empleado["nombre"] ?></td>
                         <td><?= $empleado["apellidos"] ?></td>
-                        <td><a href="index.php?accion=detalle$persona=<?= $empleado["id"] ?>">Ver detalles</a> | <a href="index.php?accion=eliminar$persona=<?= $empleado["id"] ?>">eliminar</a></td>
+                        <td><a href="index.php?accion=detalle&persona=<?= $empleado["id"] ?>">Ver detalles</a> | <a href="index.php?accion=eliminar&persona=<?= $empleado["id"] ?>">eliminar</a></td>
                     </tr>
                     <?php endforeach;?>
                 </table>
                 <p>* Opción secreta: <a href="index.php?accion=vaciar">Vaciar lista</a></p>
             </td>
             <td>
-
+                <h3>Añadir nuevo empleado</h3><br>
+                <form action="index.php" method="post">
+                    <input type="text" name="nombre" placeholder="Nombre"><br>
+                    <input type="text" name="apellidos" placeholder="Appelidos"><br>
+                    <input type="text" name="edad" placeholder="Edad"><br>
+                    <input type="date" name="fecha"><br>
+                    <input type="text" name="email" placeholder="email"><br>
+                    <input type="text" name="dni" placeholder="dni"><br>
+                    <select name="sexo" id="sexo">
+                        <option value="hombre">Hombre</option>
+                        <option value="mujer">Mujer</option>
+                    </select><br>
+                    <textarea name="curriculum" id="curriculum"></textarea><br>
+                    <a href="index.php?accion=añadir">
+                        <input type="submit" name="añadir" value="Añadir">
+                    </a>
+                </form>
             </td>
         </tr>
     </table>
