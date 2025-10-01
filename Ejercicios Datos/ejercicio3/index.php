@@ -1,23 +1,4 @@
 <?php 
-    $host = "127.0.0.1";
-    $dbname = "hands2";
-    $user = "root";
-    $pass = "";
-
-    //ABRIR CONEXION
-    function connect($host, $dbname, $user, $pass){
-        try {
-            # MySQL
-            $dbh = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-            return $dbh;
-        }
-        catch(PDOException $e) {
-            echo $e->getMessage();
-        }
-    }
-
-    $dbh = connect($host, $dbname, $user, $pass);
-
     $stmt = $dbh -> query('SELECT * FROM empleados');
     $empleados = $stmt -> fetchAll(PDO::FETCH_ASSOC);
 
