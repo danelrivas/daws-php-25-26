@@ -14,11 +14,12 @@
                     DB_PSWD
                 );
                 $dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	            return $dbConnection;
             }
             catch(PDOException $e) {
                 echo $e->getMessage();
             }
         }
+
+        return $dbConnection;
     }
 ?>

@@ -11,6 +11,15 @@
     <table>
         <tr>
             <td>
+                <form action="index.php?accion=buscar" method="post">
+                    Introduce un nombre: 
+                    <input type="text" name="nombre" placeholder="Nombre del empleado">
+                    <button type="submit">Filtrar</button>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>
                 <table>
                     <tr>
                         <td colspan="4">
@@ -35,7 +44,20 @@
                 <p>* Opción secreta: <a href="index.php?accion=vaciar">Vaciar lista</a></p>
             </td>
             <td>
-
+                <form action="index.php?accion=añadir" method="post">
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre"><br>
+                    <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos"><br>
+                    <input type="number" name="edad" id="edad" placeholder="Edad"><br>
+                    <input type="date" name="fecha" id="fecha"><br>
+                    <input type="text" name="email" id="email" placeholder="Email"><br>
+                    <input type="text" name="dni" id="dni" placeholder="DNI"><br>
+                    <select name="sexo" id="sexo">
+                        <option value="hombre">Hombre</option>
+                        <option value="mujer">Mujer</option>
+                    </select><br>
+                    <input type="textarea" name="curriculum" id="curriculum" placeholder="Curriculum"></input><br>
+                    <a href="index.php?accion=añadir"><button>Añadir</button></a>
+                </form>
             </td>
         </tr>
     </table>

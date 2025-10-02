@@ -1,43 +1,42 @@
-<?php 
-    $stmt = $dbh -> query('SELECT * FROM empleados');
-    $empleados = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+<?php
+    require_once 'db-functions.php';
+
+    //Coger todos 
+    $empleados = selectAll();
 
     //ACCIONES
     if (isset($_GET["accion"])){
         switch ($_GET["accion"]){
             case "detalle":
-                verDetalles($dbh);
+                selectById($_GET['persona']);
                 break;
             case "eliminar":
-                eliminarEmpleado($dbh);
+                deleteById($_GET['persona']);
                 break;
             case "vaciar":
-                vaciarLista($dbh);
+                deleteAll();
+                break;
+            case "añadir":
+                insertar();
+                break;
+            case "buscar":
+                $nombre = $_POST['nombre'] ?? '';
+                $empleados = selectByName($nombre);
                 break;
         }
     }
 
+    function insertar(){
+        $dni = $_POST['dni'];
+        $nombre = $_POST['nombre'];
+        $apellidos = $_POST['apellidos'];
+        $edad = $_POST['edad'];
+        $sexo = $_POST['sexo'];
+        $fecha = $_POST['fecha'];
+        $curriculum = $_POST['curriculum'];
+        echo $_POST['nombre'];
 
-    function verDetalles($dbh){
-        $stmt = $dbh->prepare('SELECT * FROM empleados WHERE id = :id');
-        $stmt->execute(["id" => $_GET["persona"]]);
-        $empleado = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        include 'detalle.view.php';
-        exit; // Para evitar que se cargue index.view.php
-    }
-
-
-    function eliminarEmpleado($dbh){
-        
-        $data = array("id" => $_GET["persona"]);
-        $stmt = $dbh -> prepare('DELETE FROM empleados WHERE id = :id');
-        $stmt -> execute($data);
-    }
-
-    function vaciarLista($dbh){
-        $stmt = $dbh -> query('DELETE FROM empleados');
-        $stmt -> execute();
+        insert($dni, $nombre, $apellidos, $edad, $sexo, $fecha, $curriculum);
     }
 
     include 'index.view.php';

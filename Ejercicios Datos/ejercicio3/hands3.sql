@@ -35,14 +35,14 @@ CREATE TABLE IF NOT EXISTS `empleados` (
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Volcando datos para la tabla hands2.empleados: ~2 rows (aproximadamente)
-INSERT INTO `empleados` (`id`, `dni`, `nombre`, `apellidos`, `edad`, `sexo`, `fecha`, `curriculum`) VALUES
-	(8, '12345678A', 'Danel', 'Rivas Gomez', 18, 'hombre', '2025-10-01', 'Fuerte');
-INSERT INTO `empleados` (`id`, `dni`, `nombre`, `apellidos`, `edad`, `sexo`, `fecha`, `curriculum`) VALUES
-	(8, '12345678A', 'Danel', 'Rivas Gomez', 18, 'hombre', '2025-10-01', 'Fuerte');
-INSERT INTO `empleados` (`id`, `dni`, `nombre`, `apellidos`, `edad`, `sexo`, `fecha`, `curriculum`) VALUES
-	(8, '12345678A', 'Danel', 'Rivas Gomez', 18, 'hombre', '2025-10-01', 'Fuerte');
-INSERT INTO `empleados` (`id`, `dni`, `nombre`, `apellidos`, `edad`, `sexo`, `fecha`, `curriculum`) VALUES
-	(8, '12345678A', 'Danel', 'Rivas Gomez', 18, 'hombre', '2025-10-01', 'Fuerte');
+INSERT INTO `empleados` (`dni`, `nombre`, `apellidos`, `edad`, `sexo`, `fecha`, `curriculum`) VALUES
+	('12345678A', 'Danel', 'Rivas Gomez', 18, 'hombre', '2025-10-01', 'Fuerte');
+INSERT INTO `empleados` (`dni`, `nombre`, `apellidos`, `edad`, `sexo`, `fecha`, `curriculum`) VALUES
+	('12345678A', 'Danel', 'Rivas Gomez', 18, 'hombre', '2025-10-01', 'Fuerte');
+INSERT INTO `empleados` (`dni`, `nombre`, `apellidos`, `edad`, `sexo`, `fecha`, `curriculum`) VALUES
+	('12345678A', 'Danel', 'Rivas Gomez', 18, 'hombre', '2025-10-01', 'Fuerte');
+INSERT INTO `empleados` (`dni`, `nombre`, `apellidos`, `edad`, `sexo`, `fecha`, `curriculum`) VALUES
+	('12345678A', 'Danel', 'Rivas Gomez', 18, 'hombre', '2025-10-01', 'Fuerte');
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
