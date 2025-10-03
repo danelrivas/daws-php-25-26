@@ -19,7 +19,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td class="tdPrincipal td1">
                 <table>
                     <tr>
                         <td colspan="4">
@@ -43,7 +43,7 @@
                 </table>
                 <p>* Opción secreta: <a href="index.php?accion=vaciar">Vaciar lista</a></p>
             </td>
-            <td>
+            <td class="tdPrincipal td2">
                 <form action="index.php?accion=añadir" method="post">
                     <input type="text" name="nombre" id="nombre" placeholder="Nombre"><br>
                     <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos"><br>
